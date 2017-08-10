@@ -6,7 +6,7 @@
 
 Name:     openmandriva-repos
 Version:  1
-Release:  0.0.1
+Release:  0.0.2
 Summary:  OpenMandriva package repositories
 Group:    System/Base
 License:  MIT
@@ -17,14 +17,10 @@ Source0:  RPM-GPG-KEY-OpenMandriva
 # OpenMandriva release repo config templates
 Source1:  openmandriva-main-repo
 Source2:  openmandriva-extrasect-repo
-Source3:  openmandriva-main-srcrepo
-Source4:  openmandriva-extrasect-srcrepo
 
 # Cooker repo config templates
 Source5:  cooker-main-repo
 Source6:  cooker-extrasect-repo
-Source7:  cooker-main-srcrepo
-Source8:  cooker-extrasect-srcrepo
 
 Provides: openmandriva-repos(%{version})
 Requires: system-release(%{version})
@@ -231,17 +227,11 @@ mkdir -p %{buildroot}%{_sysconfdir}/yum.repos.d
 
 ## Create the repositories for various sections
 install %{S:1} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-%{_arch}.repo
-install %{S:3} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-%{_arch}-source.repo
-install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-%{_arch}-source.repo
-install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-%{_arch}-source.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-%{_arch}.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-%{_arch}.repo
 
 ## Create the repositories for Cooker
 install %{S:5} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-%{_arch}.repo
-install %{S:7} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-%{_arch}-source.repo
-install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-%{_arch}-source.repo
-install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-%{_arch}-source.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-%{_arch}.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-%{_arch}.repo
 
@@ -253,7 +243,7 @@ sed -e "s/@DIST_SECTION@/nonfree/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*%{_arch}*.repo
 
 sed -e "s/@DIST_SECTION@/restricted/g" \
-    -e "s/@DIST_SECTION_NAME@/Tainted/g" \
+    -e "s/@DIST_SECTION_NAME@/Restricted/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*%{_arch}*.repo
 
 ## Disable all nonfree and restricted repositories by default
@@ -280,7 +270,7 @@ sed -e "s/@DIST_SECTION@/nonfree/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*%{secondary_distarch}*.repo
 
 sed -e "s/@DIST_SECTION@/restricted/g" \
-    -e "s/@DIST_SECTION_NAME@/Tainted/g" \
+    -e "s/@DIST_SECTION_NAME@/Restricted/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*%{secondary_distarch}*.repo
 
 ### Disable all secondary arch repositories by default
@@ -294,7 +284,7 @@ sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*%{se
 case %{release} in 
     0.*) ;;
     *)
-    echo "Cooker distro should have this package with release < %{mkrel 1}"
+    echo "Cooker distro should have this package with release < 1"
     exit 1
     ;;
 esac

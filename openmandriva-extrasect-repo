@@ -18,82 +18,13 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
 enabled=1
 
-[updates_testing-@DIST_ARCH@-@DIST_SECTION@]
+[testing-@DIST_ARCH@-@DIST_SECTION@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/core/updates_testing/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates_testing
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates_testing
+#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/core/testing/
+#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=testing
+mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=testing
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
 enabled=0
 
-[backports-@DIST_ARCH@-@DIST_SECTION@]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Backports
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/core/backports/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[backports_testing-@DIST_ARCH@-@DIST_SECTION@]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Backports
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/core/backports_testing/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports_testing
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports_testing
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[openmandriva-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Debug
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/debug/core/release/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=release&debug=true
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=release&debug=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[updates-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates - Debug
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/debug/core/updates/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates&debug=true
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates&debug=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[updates_testing-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates - Debug
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/debug/core/updates_testing/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates_testing&debug=true
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates_testing&debug=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[backports-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Backports - Debug
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/debug/core/backports/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports&debug=true
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports&debug=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
-
-[backports_testing-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
-name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Backports - Debug
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/$releasever/@DIST_ARCH@/media/debug/core/backports_testing/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports_testing&debug=true
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=backports_testing&debug=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
-enabled=0
