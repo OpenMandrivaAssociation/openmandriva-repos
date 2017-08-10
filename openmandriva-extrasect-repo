@@ -1,8 +1,6 @@
 [openmandriva-@DIST_ARCH@-@DIST_SECTION@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@
-baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/release/
-#metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=release
-#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=release
+baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -10,9 +8,7 @@ enabled=1
 
 [updates-@DIST_ARCH@-@DIST_SECTION@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates
-baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/updates/
-#metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates
-#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=updates
+baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -20,11 +16,32 @@ enabled=1
 
 [testing-@DIST_ARCH@-@DIST_SECTION@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates
-baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/testing/
-#metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=testing
-#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=@DIST_SECTION@&repo=testing
+baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/@DIST_SECTION@/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
 enabled=0
 
+[openmandriva-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
+name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Debug
+baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/debug_@DIST_SECTION@/release/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0
+
+[updates-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
+name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates - Debug
+baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/debug_@DIST_SECTION@/updates/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0
+
+[testing-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
+name=OpenMandriva $releasever - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates - Debug
+#baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/@DIST_ARCH@/debug_@DIST_SECTION@/testing/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0

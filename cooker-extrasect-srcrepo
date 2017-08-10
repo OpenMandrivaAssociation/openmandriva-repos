@@ -1,0 +1,24 @@
+[cooker-@DIST_ARCH@-@DIST_SECTION@-source]
+name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Source
+baseurl=http://abf-downloads.openmandriva.org/cooker/repository/SRPMS/@DIST_SECTION@/release/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0
+
+[cooker-updates-@DIST_ARCH@-@DIST_SECTION@-source]
+name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates - Source
+baseurl=http://abf-downloads.openmandriva.org/cooker/repository/SRPMS/@DIST_SECTION@/updates/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0
+
+[cooker-testing-@DIST_ARCH@-@DIST_SECTION@-source]
+name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates - Source
+baseurl=http://abf-downloads.openmandriva.org/cooker/repository/SRPMS/@DIST_SECTION@/testing/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+failovermethod=priority
+enabled=0
+
