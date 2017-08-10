@@ -6,7 +6,7 @@
 
 Name:     openmandriva-repos
 Version:  1
-Release:  0.0.2
+Release:  0.0.3
 Summary:  OpenMandriva package repositories
 Group:    System/Base
 License:  MIT

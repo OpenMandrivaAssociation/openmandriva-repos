@@ -1,8 +1,8 @@
 [cooker-@DIST_ARCH@]
 name=OpenMandriva Cooker - @DIST_ARCH@
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/cooker/@DIST_ARCH@/media/core/release/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=cooker&arch=@DIST_ARCH@&section=core&repo=release
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=core&repo=release
+#baseurl=http://mirror.yandex.ru/openmandriva/cooker/repository/@DIST_ARCH@/main/release/
+#metalink=https://mirrors.openmandriva.org/metalink?repository=cooker&arch=@DIST_ARCH@&section=main&repo=release
+mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=main&repo=release
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -10,9 +10,9 @@ enabled=1
 
 [cooker-updates-@DIST_ARCH@]
 name=OpenMandriva Cooker - @DIST_ARCH@ - Updates
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/cooker/@DIST_ARCH@/media/core/updates/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=cooker&arch=@DIST_ARCH@&section=core&repo=updates
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=core&repo=updates
+#baseurl=http://mirror.yandex.ru/openmandriva/cooker/repository/@DIST_ARCH@/main/updates/
+#metalink=https://mirrors.openmandriva.org/metalink?repository=cooker&arch=@DIST_ARCH@&section=main&repo=updates
+mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=main&repo=updates
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -20,9 +20,9 @@ enabled=1
 
 [cooker-testing-@DIST_ARCH@]
 name=OpenMandriva Cooker - @DIST_ARCH@ - Test Updates
-#baseurl=https://mirrors.kernel.org/openmandriva/distrib/cooker/@DIST_ARCH@/media/core/testing/
-#metalink=https://mirrors.openmandriva.org/metalink?distrib=cooker&arch=@DIST_ARCH@&section=core&repo=testing
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=core&repo=testing
+#baseurl=http://mirror.yandex.ru/openmandriva/cooker/repository/@DIST_ARCH@/main/testing/
+#metalink=https://mirrors.openmandriva.org/metalink?repository=cooker&arch=@DIST_ARCH@&section=main&repo=testing
+mirrorlist=https://www.openmandriva.org/mirrorlist/?release=cooker&arch=@DIST_ARCH@&section=main&repo=testing
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
