@@ -1,8 +1,8 @@
 [openmandriva-@DIST_ARCH@]
 name=OpenMandriva $releasever - @DIST_ARCH@
-#baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/release/
+baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/release/
 #metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=main&repo=release
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=release
+#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=release
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -10,9 +10,9 @@ enabled=1
 
 [updates-@DIST_ARCH@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - Updates
-#baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/updates/
+baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/updates/
 #metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=main&repo=updates
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=updates
+#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=updates
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
@@ -20,9 +20,9 @@ enabled=1
 
 [testing-@DIST_ARCH@]
 name=OpenMandriva $releasever - @DIST_ARCH@ - Test Updates
-#baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/testing/
+baseurl=http://mirror.yandex.ru/openmandriva/$releasever/repository/@DIST_ARCH@/main/testing/
 #metalink=https://mirrors.openmandriva.org/metalink?repository=openmandriva-$releasever&arch=@DIST_ARCH@&section=main&repo=testing
-mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=testing
+#mirrorlist=https://www.openmandriva.org/mirrorlist/?release=$releasever&arch=@DIST_ARCH@&section=main&repo=testing
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
