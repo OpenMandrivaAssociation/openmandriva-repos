@@ -4,46 +4,46 @@
 %global secondary_distarch i586
 %endif
 
-Name:     openmandriva-repos
-Version:  1
-Release:  0.0.4
-Summary:  OpenMandriva package repositories
-Group:    System/Base
-License:  MIT
+Name:		openmandriva-repos
+Version: 	1
+Release:	0.0.4
+Summary:	OpenMandriva package repositories
+Group:		System/Base
+License:	MIT
 
 # OpenMandriva GPG key
-Source0:  RPM-GPG-KEY-OpenMandriva
+Source0:	RPM-GPG-KEY-OpenMandriva
 
 # OpenMandriva release repo config templates
-Source1:  openmandriva-main-repo
-Source2:  openmandriva-extrasect-repo
-Source3:  openmandriva-main-srcrepo
-Source4:  openmandriva-extrasect-srcrepo
+Source1:	openmandriva-main-repo
+Source2:	openmandriva-extrasect-repo
+Source3:	openmandriva-main-srcrepo
+Source4:	openmandriva-extrasect-srcrepo
 
 # Cooker repo config templates
-Source5:  cooker-main-repo
-Source6:  cooker-extrasect-repo
-Source7:  cooker-main-srcrepo
-Source8:  cooker-extrasect-srcrepo
+Source5:	cooker-main-repo
+Source6:	cooker-extrasect-repo
+Source7:	cooker-main-srcrepo
+Source8:	cooker-extrasect-srcrepo
 
-Provides: openmandriva-repos(%{version})
-Requires: system-release(%{version})
-Requires: openmandriva-repos-pkgprefs = %{version}-%{release}
-Requires: openmandriva-repos-keys = %{version}-%{release}
+Provides:	openmandriva-repos(%{version})
+Requires:	system-release(%{version})
+Requires:	openmandriva-repos-pkgprefs = %{EVRD}
+Requires:	openmandriva-repos-keys = %{EVRD}
 
-%if %am_i_cooker
-Requires: openmandriva-repos-cooker = %{version}-%{release}
+%if %{am_i_cooker}
+Requires:	openmandriva-repos-cooker = %{EVRD}
 %endif
 
 %description
 OpenMandriva package repository files for DNF and PackageKit
-with GPG public keys
+with GPG public keys.
 
 %package keys
-Summary:  OpenMandriva repository GPG keys
-Group:    System/Base
+Summary:	OpenMandriva repository GPG keys
+Group:		System/Base
 # GPG keys are architecture independent
-BuildArch: noarch
+BuildArch:	noarch
 
 %description keys
 OpenMandriva GPG keys for validating packages from OpenMandriva repositories by
@@ -52,131 +52,131 @@ DNF and PackageKit.
 %package pkgprefs
 # (ngompa): See the following page on why this exists:
 # https://fedoraproject.org/wiki/PackagingDrafts/ProvidesPreferences#Distribution_preference
-Summary:  OpenMandriva repository package preferences
-Group:    System/Base
+Summary:	OpenMandriva repository package preferences
+Group:		System/Base
 # Preferences list is architecture independent
-BuildArch: noarch
+BuildArch:	noarch
 
 ## Base packages
 
 # webfetch
-Suggests: curl
+Suggests:	curl
 
 # webclient
-Suggests: lynx
+Suggests:	lynx
 
 # bootloader
-Suggests: grub
+Suggests:	grub
 
 # vim
-Suggests: vim-minimal
+Suggests:	vim-minimal
 
 # Always prefer perl-base over weird packages auto-providing same modules
-Suggests: perl-base
+Suggests:	perl-base
 
 # libGL.so.1 (also provided by proprietary drivers)
-Suggests: libmesagl1
-Suggests: lib64mesagl1
+Suggests:	libmesagl1
+Suggests:	lib64mesagl1
 
 # Prefer openssl over libressl
-Suggests: libopenssl1.0.0
-Suggests: lib64openssl1.0.0
+Suggests:	libopenssl1.0.0
+Suggests:	lib64openssl1.0.0
 
 # Prefer openssh-askpass over openssh-askpass-gnome (for keychain)
-Suggests: openssh-askpass
+Suggests:	openssh-askpass
 
 # Python 2.7
-Suggests: python
+Suggests:	python
 
 # Initrd
-Suggests: dracut
+Suggests:	dracut
 
 ## Multimedia
 
 # festival-voice
-Suggests: festvox-kallpc16k
+Suggests:	festvox-kallpc16k
 
 # gnome-speech-driver
-Suggests: gnome-speech-driver-espeak
+Suggests:	gnome-speech-driver-espeak
 
 # esound
-Suggests: pulseaudio-esound-compat
+Suggests:	pulseaudio-esound-compat
 
 # gst-install-plugins-helper
-Suggests: packagekit-gstreamer-plugin
+Suggests:	packagekit-gstreamer-plugin
 
 # libbaconvideowidget.so.0 (totem backend)
-Suggests: libbaconvideowidget-gstreamer0
-Suggests: lib64baconvideowidget-gstreamer0
+Suggests:	libbaconvideowidget-gstreamer0
+Suggests:	lib64baconvideowidget-gstreamer0
 
 # phonon-backend: prefer phonon-vlc over phonon-gstreamer
-Suggests: phonon-vlc
+Suggests:	phonon-vlc
 
 # phonon4qt5-backend: prefer phonon4qt5-vlc over phonon4qt5-gstreamer
-Suggests: phonon4qt5-vlc
+Suggests:	phonon4qt5-vlc
 
 # mate backends
-Suggests: mate-settings-daemon-pulse
-Suggests: mate-media-pulse
+Suggests:	mate-settings-daemon-pulse
+Suggests:	mate-media-pulse
 
 ## Devel
 
 # xemacs-extras provides ctags, prefer simple ctags
-Suggests: ctags
+Suggests:	ctags
 
 # prefer openssl-devel over libressl-devel
-Suggests: libopenssl-devel
-Suggests: lib64openssl-devel
+Suggests:	libopenssl-devel
+Suggests:	lib64openssl-devel
 
 # prefer gcc over gcc3.3
 # (gcc-cpp and gcc-c++ are no more needed, but keeping just in case)
-Suggests: gcc
-Suggests: gcc-cpp
-Suggests: gcc-c++
-Suggests: libstdc++-devel
+Suggests:	gcc
+Suggests:	gcc-cpp
+Suggests:	gcc-c++
+Suggests:	libstdc++-devel
 
 ## Servers
 
 # sendmail-command and mail-server
-Suggests: postfix
+Suggests:	postfix
 
 # webserver
-Suggests: apache
+Suggests:	apache
 
 # nfs-server
-Suggests: nfs-utils
+Suggests:	nfs-utils
 
 # ftpserver
-Suggests: proftpd
+Suggests:	proftpd
 
 # postgresql
-Suggests: libpq5
-Suggests: lib64pq5
+Suggests:	libpq5
+Suggests:	lib64pq5
 
 # syslog-daemon
-Suggests: rsyslog
+Suggests:	rsyslog
 
 # vnc
-Suggests: tigervnc
+Suggests:	tigervnc
 
 # x2goserver database backend
-Suggests: x2goserver-sqlite
+Suggests:	x2goserver-sqlite
 
 ## Various
 # sane (also provided by saned)
-Suggests: sane-backends
+Suggests:	sane-backends
 
 # virtual-notification-daemon
-Suggests: notification-daemon
+Suggests:	notification-daemon
 
 # sgml-tools
 # (the other choice is linuxdoc-tools which requires docbook-utils anyway)
-Suggests: docbook-utils
+Suggests:	docbook-utils
 
 # input method
-Suggests: ibus
-Suggests: pyzy-db-open-phrase
-Suggests: ibus-ui-gtk3
+Suggests:	ibus
+Suggests:	pyzy-db-open-phrase
+Suggests:	ibus-ui-gtk3
 # plasma-applet-kimpanel-backend: prefer plasma-applet-kimpanel-backend-ibus to plasma-applet-kimpanel-backend-scim
 # Removed due to bug 8459
 #plasma-applet-kimpanel-backend-ibus 
@@ -185,20 +185,20 @@ Suggests: ibus-ui-gtk3
 Suggests: drupal-mysql
 
 # polkit-agent
-Suggests: mate-polkit
+Suggests:	mate-polkit
 
 # java
-Suggests: java-1.8.0-openjdk
-Suggests: java-1.8.0-openjdk-devel
+Suggests:	java-1.8.0-openjdk
+Suggests:	java-1.8.0-openjdk-devel
 
 # java-plugin
-Suggests: icedtea-web
+Suggests:	icedtea-web
 
 # kde-display-management: prefer kscreen to krandr for mga4
-Suggests: kscreen
+Suggests:	kscreen
 
 # lightdm greeter
-Suggests: lightdm-gtk3-greeter
+Suggests:	lightdm-gtk3-greeter
 
 
 %description pkgprefs
@@ -207,12 +207,12 @@ preferences for packages in which multiple options are possible.
 
 
 %package cooker
-Summary:        Cooker repo definitions
-Group:          System/Base
-Requires:       openmandriva-repos = %{version}-%{release}
+Summary:	Cooker repo definitions
+Group:		System/Base
+Requires:	openmandriva-repos = %{EVRD}
 
 %description cooker
-This package provides the Cooker repo definitions
+This package provides the Cooker repo definitions.
 
 
 %prep
@@ -290,7 +290,7 @@ sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*%{se
 
 
 %check
-%if %am_i_cooker
+%if %{am_i_cooker}
 case %{release} in 
     0.*) ;;
     *)
