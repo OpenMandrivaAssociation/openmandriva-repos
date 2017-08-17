@@ -6,7 +6,7 @@
 
 Name:		openmandriva-repos
 Version: 	1
-Release:	0.0.4
+Release:	0.0.5
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -66,7 +66,7 @@ Suggests:	curl
 Suggests:	lynx
 
 # bootloader
-Suggests:	grub
+Suggests:	grub2
 
 # vim
 Suggests:	vim-minimal
@@ -75,8 +75,8 @@ Suggests:	vim-minimal
 Suggests:	perl-base
 
 # libGL.so.1 (also provided by proprietary drivers)
-Suggests:	libmesagl1
-Suggests:	lib64mesagl1
+Suggests:	libgl1
+Suggests:	lib64gl1
 
 # Prefer openssl over libressl
 Suggests:	libopenssl1.0.0
@@ -85,7 +85,7 @@ Suggests:	lib64openssl1.0.0
 # Prefer openssh-askpass over openssh-askpass-gnome (for keychain)
 Suggests:	openssh-askpass
 
-# Python 2.7
+# Python 3.4
 Suggests:	python
 
 # Initrd
@@ -110,10 +110,10 @@ Suggests:	libbaconvideowidget-gstreamer0
 Suggests:	lib64baconvideowidget-gstreamer0
 
 # phonon-backend: prefer phonon-vlc over phonon-gstreamer
-Suggests:	phonon-vlc
+Suggests:	phonon-gstreamer
 
 # phonon4qt5-backend: prefer phonon4qt5-vlc over phonon4qt5-gstreamer
-Suggests:	phonon4qt5-vlc
+Suggests:	phonon4qt5-gstreamer
 
 # mate backends
 Suggests:	mate-settings-daemon-pulse
@@ -130,9 +130,7 @@ Suggests:	lib64openssl-devel
 
 # prefer gcc over gcc3.3
 # (gcc-cpp and gcc-c++ are no more needed, but keeping just in case)
-Suggests:	gcc
-Suggests:	gcc-cpp
-Suggests:	gcc-c++
+Suggests:	clang
 Suggests:	libstdc++-devel
 
 ## Servers
@@ -154,7 +152,7 @@ Suggests:	libpq5
 Suggests:	lib64pq5
 
 # syslog-daemon
-Suggests:	rsyslog
+Suggests:	systemd
 
 # vnc
 Suggests:	tigervnc
@@ -174,12 +172,7 @@ Suggests:	notification-daemon
 Suggests:	docbook-utils
 
 # input method
-Suggests:	ibus
-Suggests:	pyzy-db-open-phrase
-Suggests:	ibus-ui-gtk3
-# plasma-applet-kimpanel-backend: prefer plasma-applet-kimpanel-backend-ibus to plasma-applet-kimpanel-backend-scim
-# Removed due to bug 8459
-#plasma-applet-kimpanel-backend-ibus 
+Suggests:	fcitx
 
 # drupal database storage
 Suggests: drupal-mysql
@@ -194,12 +187,23 @@ Suggests:	java-1.8.0-openjdk-devel
 # java-plugin
 Suggests:	icedtea-web
 
-# kde-display-management: prefer kscreen to krandr for mga4
-Suggests:	kscreen
+Suggests:	lxsession-lite
 
-# lightdm greeter
-Suggests:	lightdm-gtk3-greeter
+# drupal database storage
+Suggests:	drupal-mysqli
 
+# polkit-agent
+Suggests:	polkit-kde-agent-1
+
+# pinentry
+Suggests:	pinentry-qt5
+
+# %{_lib}qt5-output-driver
+Suggests:	libqt5gui-x11
+Suggests:	lib64qt5gui-x11
+
+# pkgconfig
+Suggests:	pkgconf
 
 %description pkgprefs
 This package supplies DNF and PackageKit with global
