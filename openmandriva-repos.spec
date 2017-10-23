@@ -6,7 +6,7 @@
 
 Name:		openmandriva-repos
 Version: 	3.1
-Release:	0.0.2
+Release:	0.0.3
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -77,10 +77,6 @@ Suggests:	perl-base
 # libGL.so.1 (also provided by proprietary drivers)
 Suggests:	libgl1
 Suggests:	lib64gl1
-
-# Prefer openssl over libressl
-Suggests:	libopenssl1.0.0
-Suggests:	lib64openssl1.0.0
 
 # Prefer openssh-askpass over openssh-askpass-gnome (for keychain)
 Suggests:	openssh-askpass
