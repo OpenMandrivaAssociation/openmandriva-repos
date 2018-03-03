@@ -5,8 +5,8 @@
 %endif
 
 Name:		openmandriva-repos
-Version: 	3.1
-Release:	0.0.3
+Version: 	4.0
+Release:	0.0.1
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
