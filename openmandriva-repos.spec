@@ -6,7 +6,7 @@
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.1
+Release:	0.0.2
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -70,9 +70,6 @@ Suggests:	grub2
 
 # vim
 Suggests:	vim-minimal
-
-# Always prefer perl-base over weird packages auto-providing same modules
-Suggests:	perl-base
 
 # libGL.so.1 (also provided by proprietary drivers)
 Suggests:	libgl1
@@ -171,7 +168,7 @@ Suggests:	docbook-utils
 Suggests:	fcitx
 
 # drupal database storage
-Suggests: drupal-mysql
+Suggests:	drupal-mysql
 
 # polkit-agent
 Suggests:	mate-polkit
@@ -198,9 +195,6 @@ Suggests:	pinentry-qt5
 Suggests:	libqt5gui-x11
 Suggests:	lib64qt5gui-x11
 
-# pkgconfig
-Suggests:	pkgconf
-
 %description pkgprefs
 This package supplies DNF and PackageKit with global
 preferences for packages in which multiple options are possible.
@@ -213,7 +207,6 @@ Requires:	openmandriva-repos = %{EVRD}
 
 %description cooker
 This package provides the Cooker repo definitions.
-
 
 %prep
 # Nothing to prepare
