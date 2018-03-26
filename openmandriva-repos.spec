@@ -1,6 +1,6 @@
 %define am_i_cooker 1
 
-%if %{_arch} == "x86_64"
+%if "%{_arch}" == "x86_64"
 %global secondary_distarch i586
 %endif
 
@@ -215,6 +215,10 @@ This package provides the Cooker repo definitions.
 # Nothing to build
 
 %install
+ARCH=%{_arch}
+[ "$ARCH" = "arm" ] && ARCH=armv7hl
+[ "$ARCH" = "i386" ] && ARCH=i686
+
 # Install the GPG key
 mkdir -p %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 install %{S:0} -pm 0644 %{buildroot}%{_sysconfdir}/pki/rpm-gpg
@@ -223,35 +227,35 @@ install %{S:0} -pm 0644 %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 mkdir -p %{buildroot}%{_sysconfdir}/yum.repos.d
 
 ## Create the repositories for various sections
-install %{S:1} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-%{_arch}.repo
-install %{S:3} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-%{_arch}-source.repo
-install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-%{_arch}-source.repo
-install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-%{_arch}-source.repo
-install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-%{_arch}.repo
-install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-%{_arch}.repo
+install %{S:1} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-${ARCH}.repo
+install %{S:3} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-${ARCH}-source.repo
+install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-${ARCH}-source.repo
+install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-${ARCH}-source.repo
+install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-${ARCH}.repo
+install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-${ARCH}.repo
 
 ## Create the repositories for Cooker
-install %{S:5} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-%{_arch}.repo
-install %{S:7} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-%{_arch}-source.repo
-install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-%{_arch}-source.repo
-install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-%{_arch}-source.repo
-install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-%{_arch}.repo
-install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-%{_arch}.repo
+install %{S:5} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-${ARCH}.repo
+install %{S:7} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-${ARCH}-source.repo
+install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-${ARCH}-source.repo
+install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-${ARCH}-source.repo
+install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-${ARCH}.repo
+install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-${ARCH}.repo
 
 ## Fill in the correct values for the installed repo files
-sed -e "s/@DIST_ARCH@/%{_arch}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*%{_arch}*.repo
+sed -e "s/@DIST_ARCH@/${ARCH}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*${ARCH}*.repo
 
 sed -e "s/@DIST_SECTION@/nonfree/g" \
     -e "s/@DIST_SECTION_NAME@/Nonfree/g" \
-    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*%{_arch}*.repo
+    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*${ARCH}*.repo
 
 sed -e "s/@DIST_SECTION@/restricted/g" \
     -e "s/@DIST_SECTION_NAME@/Restricted/g" \
-    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*%{_arch}*.repo
+    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*${ARCH}*.repo
 
 ## Disable all nonfree and restricted repositories by default
-sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*%{_arch}*.repo
-sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*%{_arch}*.repo
+sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*${ARCH}*.repo
+sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*${ARCH}*.repo
 
 ## For architectures with a secondary arch, we need to create repositories for them, too
 %if %{defined secondary_distarch}
