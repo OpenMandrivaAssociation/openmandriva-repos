@@ -2,11 +2,15 @@
 
 %if "%{_arch}" == "x86_64"
 %global secondary_distarch i686
+%else
+%if "%{_arch}" == "aarch64"
+%global secondary_distarch armv7hnl
+%endif
 %endif
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.3
+Release:	0.0.4
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -216,7 +220,7 @@ This package provides the Cooker repo definitions.
 
 %install
 ARCH=%{_arch}
-[ "$ARCH" = "arm" ] && ARCH=armv7hl
+[ "$ARCH" = "arm" ] && ARCH=armv7hnl
 [ "$ARCH" = "i386" ] && ARCH=i686
 
 # Install the GPG key
