@@ -10,7 +10,7 @@
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.4
+Release:	0.0.5
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -130,6 +130,9 @@ Suggests:	lib64openssl-devel
 Suggests:	clang
 Suggests:	libstdc++-devel
 
+# prefer dnf-utils over urpmi-debuginfo-install
+Suggests:	dnf-utils
+
 ## Servers
 
 # sendmail-command and mail-server
@@ -222,6 +225,7 @@ This package provides the Cooker repo definitions.
 ARCH=%{_arch}
 [ "$ARCH" = "arm" ] && ARCH=armv7hnl
 [ "$ARCH" = "i386" ] && ARCH=i686
+[ "$ARCH" = "i586" ] && ARCH=i686
 
 # Install the GPG key
 mkdir -p %{buildroot}%{_sysconfdir}/pki/rpm-gpg
