@@ -1,16 +1,16 @@
 %define am_i_cooker 1
 
-%if "%{_arch}" == "x86_64"
+%ifarch %{x86_64}
 %global secondary_distarch i686
 %else
-%if "%{_arch}" == "aarch64"
+%ifarch %{aarch64}
 %global secondary_distarch armv7hnl
 %endif
 %endif
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.5
+Release:	0.0.6
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -73,7 +73,7 @@ Suggests:	lynx
 Suggests:	grub2
 
 # vim
-Suggests:	vim-minimal
+Suggests:	vim-enhanced
 
 # libGL.so.1 (also provided by proprietary drivers)
 Suggests:	libgl1
@@ -82,7 +82,7 @@ Suggests:	lib64gl1
 # Prefer openssh-askpass over openssh-askpass-gnome (for keychain)
 Suggests:	openssh-askpass
 
-# Python 3.4
+# Python 3.x
 Suggests:	python
 
 # Initrd
