@@ -257,7 +257,7 @@ install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-contrib-${
 ## Fill in the correct values for the installed repo files
 sed -e "s/@DIST_ARCH@/${ARCH}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*${ARCH}*.repo
 
-sed -e "s/@DIST_SECTION@/nonfree/g" \
+sed -e "s/@DIST_SECTION@/non-free/g" \
     -e "s/@DIST_SECTION_NAME@/Nonfree/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*${ARCH}*.repo
 
