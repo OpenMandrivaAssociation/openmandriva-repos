@@ -10,7 +10,7 @@
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.8
+Release:	0.0.9
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
