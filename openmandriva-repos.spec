@@ -10,7 +10,7 @@
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.9
+Release:	0.0.10
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -222,8 +222,8 @@ This package provides the Cooker repo definitions.
 # Nothing to build
 
 %install
-ARCH=%{_arch}
-[ "$ARCH" = "arm" ] && ARCH=armv7hnl
+ARCH=%{_target_cpu}
+echo $ARCH |grep -q arm && ARCH=armv7hnl
 [ "$ARCH" = "i386" ] && ARCH=i686
 [ "$ARCH" = "i586" ] && ARCH=i686
 
