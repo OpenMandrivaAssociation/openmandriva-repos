@@ -10,7 +10,7 @@
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.10
+Release:	0.0.11
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -237,20 +237,20 @@ mkdir -p %{buildroot}%{_sysconfdir}/yum.repos.d
 ## Create the repositories for various sections
 install %{S:1} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-${ARCH}.repo
 install %{S:3} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-${ARCH}-source.repo
-install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-${ARCH}-source.repo
+install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-non-free-${ARCH}-source.repo
 install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-${ARCH}-source.repo
 install %{S:4} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-contrib-${ARCH}-source.repo
-install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-${ARCH}.repo
+install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-non-free-${ARCH}.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-${ARCH}.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-contrib-${ARCH}.repo
 
 ## Create the repositories for Cooker
 install %{S:5} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-${ARCH}.repo
 install %{S:7} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-${ARCH}-source.repo
-install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-${ARCH}-source.repo
+install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-non-free-${ARCH}-source.repo
 install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-${ARCH}-source.repo
 install %{S:8} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-contrib-${ARCH}-source.repo
-install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-${ARCH}.repo
+install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-non-free-${ARCH}.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-${ARCH}.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-contrib-${ARCH}.repo
 
@@ -258,8 +258,8 @@ install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-contrib-${
 sed -e "s/@DIST_ARCH@/${ARCH}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*${ARCH}*.repo
 
 sed -e "s/@DIST_SECTION@/non-free/g" \
-    -e "s/@DIST_SECTION_NAME@/Nonfree/g" \
-    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*${ARCH}*.repo
+    -e "s/@DIST_SECTION_NAME@/non-free/g" \
+    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*non-free*${ARCH}*.repo
 
 sed -e "s/@DIST_SECTION@/restricted/g" \
     -e "s/@DIST_SECTION_NAME@/Restricted/g" \
@@ -269,8 +269,8 @@ sed -e "s/@DIST_SECTION@/contrib/g" \
     -e "s/@DIST_SECTION_NAME@/Contrib/g" \
     -i %{buildroot}%{_sysconfdir}/yum.repos.d/*contrib*${ARCH}*.repo
 
-## Disable all nonfree and restricted repositories by default
-sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*${ARCH}*.repo
+## Disable all non-free and restricted repositories by default
+sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*non-free*${ARCH}*.repo
 sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*restricted*${ARCH}*.repo
 sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*contrib*${ARCH}*.repo
 
@@ -278,22 +278,22 @@ sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*cont
 %if %{defined secondary_distarch}
 ### Create the repositories for various sections, excluding sources (as they are identical to primary arch ones)
 install %{S:1} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-%{secondary_distarch}.repo
-install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-nonfree-%{secondary_distarch}.repo
+install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-non-free-%{secondary_distarch}.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-restricted-%{secondary_distarch}.repo
 install %{S:2} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-contrib-%{secondary_distarch}.repo
 
 ### Create the repositories for Cooker, excluding sources (as they are identical to primary arch ones)
 install %{S:5} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-%{secondary_distarch}.repo
-install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-nonfree-%{secondary_distarch}.repo
+install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-non-free-%{secondary_distarch}.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-restricted-%{secondary_distarch}.repo
 install %{S:6} -pm 0644 %{buildroot}%{_sysconfdir}/yum.repos.d/cooker-contrib-%{secondary_distarch}.repo
 
 ### Fill in the correct values for the installed repo files
 sed -e "s/@DIST_ARCH@/%{secondary_distarch}/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*%{secondary_distarch}*.repo
 
-sed -e "s/@DIST_SECTION@/nonfree/g" \
-    -e "s/@DIST_SECTION_NAME@/Nonfree/g" \
-    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*nonfree*%{secondary_distarch}*.repo
+sed -e "s/@DIST_SECTION@/non-free/g" \
+    -e "s/@DIST_SECTION_NAME@/Non-free/g" \
+    -i %{buildroot}%{_sysconfdir}/yum.repos.d/*non-free*%{secondary_distarch}*.repo
 
 sed -e "s/@DIST_SECTION@/restricted/g" \
     -e "s/@DIST_SECTION_NAME@/Restricted/g" \
