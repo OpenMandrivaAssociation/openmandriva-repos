@@ -12,7 +12,7 @@ baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/main
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 failovermethod=priority
-enabled=1
+enabled=0
 
 [cooker-testing-@DIST_ARCH@]
 name=OpenMandriva Cooker - @DIST_ARCH@ - Test Updates
