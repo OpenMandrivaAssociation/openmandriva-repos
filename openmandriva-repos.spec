@@ -1,16 +1,19 @@
-%define am_i_cooker 1
+%define am_i_cooker 0
 
 %ifarch %{x86_64}
 %global secondary_distarch i686
-%else
+%endif
+
 %ifarch %{aarch64}
 %global secondary_distarch armv7hnl
-%endif
 %endif
 
 Name:		openmandriva-repos
 Version: 	4.0
-Release:	0.0.12
+# During Cooker devel, it should be 0.0.X
+# During release candidate, it should be 0.1.X
+# Before final release, bump to 1
+Release:	0.1.0
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -34,6 +37,12 @@ Provides:	openmandriva-repos(%{version})
 Requires:	system-release(%{version})
 Requires:	openmandriva-repos-pkgprefs = %{EVRD}
 Requires:	openmandriva-repos-keys = %{EVRD}
+
+# At RC stage, after switching off am_i_cooker, add the appropriate Obsoletes
+#Obsoletes:	openmandriva-repos-cooker < VERSION-0.1
+
+# Remove after Cooker becomes OpenMandriva Lx 5
+Obsoletes:	openmandriva-repos-cooker < 4.0-0.1
 
 %if %{am_i_cooker}
 Requires:	openmandriva-repos-cooker = %{EVRD}
@@ -311,7 +320,7 @@ sed -e "s/enabled=1/enabled=0/g" -i %{buildroot}%{_sysconfdir}/yum.repos.d/*%{se
 
 %check
 %if %{am_i_cooker}
-case %{release} in 
+case %{release} in
     0.*) ;;
     *)
     echo "Cooker distro should have this package with release < 1"
