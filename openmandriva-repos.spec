@@ -1,11 +1,11 @@
-%define am_i_cooker 0
+%define am_i_cooker 1
 
 %ifarch %{x86_64}
 %global secondary_distarch i686
-%endif
-
+%else
 %ifarch %{aarch64}
 %global secondary_distarch armv7hnl
+%endif
 %endif
 
 Name:		openmandriva-repos
@@ -13,7 +13,7 @@ Version: 	4.0
 # During Cooker devel, it should be 0.0.X
 # During release candidate, it should be 0.1.X
 # Before final release, bump to 1
-Release:	0.1.1
+Release:	0.1.2
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -37,12 +37,6 @@ Provides:	openmandriva-repos(%{version})
 Requires:	system-release(%{version})
 Requires:	openmandriva-repos-pkgprefs = %{EVRD}
 Requires:	openmandriva-repos-keys = %{EVRD}
-
-# At RC stage, after switching off am_i_cooker, add the appropriate Obsoletes
-#Obsoletes:	openmandriva-repos-cooker < VERSION-0.1
-
-# Remove after Cooker becomes OpenMandriva Lx 5
-Obsoletes:	openmandriva-repos-cooker < 4.0-0.1
 
 %if %{am_i_cooker}
 Requires:	openmandriva-repos-cooker = %{EVRD}
