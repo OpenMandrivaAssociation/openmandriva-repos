@@ -3,7 +3,6 @@ name=OpenMandriva $releasever - @DIST_ARCH@ - Source
 baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/SRPMS/main/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
 
 [updates-@DIST_ARCH@-source]
@@ -11,7 +10,6 @@ name=OpenMandriva $releasever - @DIST_ARCH@ - Updates - Source
 baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/SRPMS/main/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
 
 [testing-@DIST_ARCH@-source]
@@ -19,5 +17,4 @@ name=OpenMandriva $releasever - @DIST_ARCH@ - Test Updates - Source
 baseurl=http://abf-downloads.openmandriva.org/$releasever/repository/SRPMS/main/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0

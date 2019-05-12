@@ -3,7 +3,6 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/@DIST_SECTION@/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=1
 
 [cooker-updates-@DIST_ARCH@-@DIST_SECTION@]
@@ -11,7 +10,6 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/@DIST_SECTION@/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=1
 
 [cooker-testing-@DIST_ARCH@-@DIST_SECTION@]
@@ -19,7 +17,6 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/@DIST_SECTION@/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
 
 [cooker-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
@@ -27,7 +24,6 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Debug
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/debug_@DIST_SECTION@/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
 
 [cooker-updates-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
@@ -35,7 +31,6 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Updates - Debug
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/debug_@DIST_SECTION@/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
 
 [cooker-testing-@DIST_ARCH@-@DIST_SECTION@-debuginfo]
@@ -43,5 +38,4 @@ name=OpenMandriva Cooker - @DIST_ARCH@ - @DIST_SECTION_NAME@ - Test Updates - De
 baseurl=http://abf-downloads.openmandriva.org/cooker/repository/@DIST_ARCH@/debug_@DIST_SECTION@/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
-failovermethod=priority
 enabled=0
