@@ -1,4 +1,4 @@
-%define am_i_cooker 1
+%define am_i_cooker 0
 %define am_i_rolling 0
 
 %ifarch %{x86_64}
@@ -10,11 +10,11 @@
 %endif
 
 Name:		openmandriva-repos
-Version: 	4.0.1
+Version: 	4.0
 # During Cooker devel, it should be 0.0.X
 # During release candidate, it should be 0.1.X
 # Before final release, bump to 1
-Release:	0.0.1
+Release:	1
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
