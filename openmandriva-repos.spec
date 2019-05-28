@@ -226,32 +226,35 @@ SECONDARY_ARCH=""
 for arch in ${ARCH} ${SECONDARY_ARCH}; do
 	for release in release rock rolling cooker; do
 		for repo in main unsupported restricted non-free; do
+			case "$repo" in
+			main)
+				REPO=""
+				REPONAME=""
+				;;
+			*)
+				REPO="-$repo"
+				REPONAME=" - $(echo $repo |cut -b1 |tr a-z A-Z)$(echo $repo |cut -b2-)"
+				;;
+			esac
+
 			vertag=$release
 			case "$release" in
 			release)
-				NAME='OpenMandriva $releasever'" - $arch"
+				NAME='OpenMandriva $releasever'"$REPONAME - $arch"
 				HAS_UPDATES=true
 				vertag='$releasever'
 				;;
 			rock)
-				NAME="OpenMandriva Rock - $arch"
+				NAME="OpenMandriva Rock$REPONAME - $arch"
 				HAS_UPDATES=true
 				;;
 			rolling)
-				NAME="OpenMandriva Rolling - $arch"
+				NAME="OpenMandriva Rolling$REPONAME - $arch"
 				HAS_UPDATES=false
 				;;
 			cooker)
-				NAME="OpenMandriva Cooker - $arch"
+				NAME="OpenMandriva Cooker$REPONAME - $arch"
 				HAS_UPDATES=false
-				;;
-			esac
-			case "$repo" in
-			main)
-				REPO=""
-				;;
-			*)
-				REPO="-$repo"
 				;;
 			esac
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
