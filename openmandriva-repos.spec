@@ -321,7 +321,7 @@ enabled=0
 
 EOF
 
-			cat >%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
+			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
 [$release-$arch$REPO-source]
 name=$NAME - Source
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/release/
@@ -333,7 +333,7 @@ EOF
 
 			if $HAS_UPDATES; then
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
-[$release-$arch$REPO-source]
+[$release-updates-$arch$REPO-source]
 name=$NAME - Updates - Source
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/updates/
 gpgcheck=1
@@ -344,7 +344,7 @@ EOF
 			fi
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
-[$release-$arch$REPO-source]
+[$release-testing-$arch$REPO-source]
 name=$NAME - Testing - Source
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/testing/
 gpgcheck=1
