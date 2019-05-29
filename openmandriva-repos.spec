@@ -259,7 +259,7 @@ for arch in ${ARCH} ${SECONDARY_ARCH}; do
 			esac
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-$arch$REPO]
-name=$NAME
+name="$NAME"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -270,7 +270,7 @@ EOF
 			if $HAS_UPDATES; then
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-updates-$arch$REPO]
-name=$NAME - Updates
+name="$NAME - Updates"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -281,7 +281,7 @@ EOF
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-testing-$arch$REPO]
-name=$NAME - Testing
+name="$NAME - Testing"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -291,7 +291,7 @@ EOF
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-$arch$REPO-debuginfo]
-name=$NAME - Debug
+name="$NAME - Debug"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -302,7 +302,7 @@ EOF
 			if $HAS_UPDATES; then
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-updates-$arch$REPO-debuginfo]
-name=$NAME - Updates - Debug
+name="$NAME - Updates - Debug"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -313,7 +313,7 @@ EOF
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-testing-$arch$REPO-debuginfo]
-name=$NAME - Testing - Debug
+name="$NAME - Testing - Debug"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -323,7 +323,7 @@ EOF
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
 [$release-$arch$REPO-source]
-name=$NAME - Source
+name="$NAME - Source"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/release/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -334,7 +334,7 @@ EOF
 			if $HAS_UPDATES; then
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
 [$release-updates-$arch$REPO-source]
-name=$NAME - Updates - Source
+name="$NAME - Updates - Source"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
@@ -345,7 +345,7 @@ EOF
 
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
 [$release-testing-$arch$REPO-source]
-name=$NAME - Testing - Source
+name="$NAME - Testing - Source"
 baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/testing/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
