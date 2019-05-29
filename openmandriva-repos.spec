@@ -14,7 +14,7 @@ Version: 	4.0.1
 # During Cooker devel, it should be 0.0.X
 # During release candidate, it should be 0.1.X
 # Before final release, bump to 1
-Release:	0.0.1
+Release:	0.0.2
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
