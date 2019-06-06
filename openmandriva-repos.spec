@@ -11,10 +11,19 @@
 
 Name:		openmandriva-repos
 Version: 	4.0.1
-# During Cooker devel, it should be 0.0.X
-# During release candidate, it should be 0.1.X
+# In Cooker, it should be 0.0.X
+# In Rolling, it should be 0.1.X
+# For release candidates, it should be 0.2.X
 # Before final release, bump to 1
-Release:	0.0.2
+%if %am_i_cooker
+Release:	0.0.4
+%else
+%if %am_i_rolling
+Release:	0.1.4
+%else
+Release:	2
+%endif
+%endif
 Summary:	OpenMandriva package repositories
 Group:		System/Base
 License:	MIT
@@ -260,7 +269,10 @@ for arch in ${ARCH} ${SECONDARY_ARCH}; do
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-$arch$REPO]
 name="$NAME"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/release/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/release/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=${repo}&release=release
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -271,7 +283,10 @@ EOF
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-updates-$arch$REPO]
 name="$NAME - Updates"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/updates/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/updates/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=${repo}&release=updates
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -282,7 +297,10 @@ EOF
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-testing-$arch$REPO]
 name="$NAME - Testing"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/testing/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/${repo}/testing/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=${repo}&release=testing
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -292,7 +310,10 @@ EOF
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-$arch$REPO-debuginfo]
 name="$NAME - Debug"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/release/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/release/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=debug_${repo}&release=release
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -303,7 +324,10 @@ EOF
 				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-updates-$arch$REPO-debuginfo]
 name="$NAME - Updates - Debug"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/updates/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/updates/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=debug_${repo}&release=updates
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -314,17 +338,23 @@ EOF
 			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch.repo <<EOF
 [$release-testing-$arch$REPO-debuginfo]
 name="$NAME - Testing - Debug"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/testing/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/${arch}/debug_${repo}/testing/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${arch}&repo=debug_${repo}&release=testing
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
 
 EOF
 
-			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
+			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch-source.repo <<EOF
 [$release-$arch$REPO-source]
 name="$NAME - Source"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/release/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/release/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=SRPMS&repo=${repo}&release=release
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -332,10 +362,13 @@ enabled=0
 EOF
 
 			if $HAS_UPDATES; then
-				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
+				cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch-source.repo <<EOF
 [$release-updates-$arch$REPO-source]
 name="$NAME - Updates - Source"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/updates/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/updates/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=SRPMS&repo=${repo}&release=updates
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
@@ -343,10 +376,13 @@ enabled=0
 EOF
 			fi
 
-			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$arch-source.repo <<EOF
+			cat >>%{buildroot}%{_sysconfdir}/yum.repos.d/openmandriva-$release-$arch-source.repo <<EOF
 [$release-testing-$arch$REPO-source]
 name="$NAME - Testing - Source"
-baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/testing/
+# Master repository:
+# baseurl=http://abf-downloads.openmandriva.org/$vertag/repository/SRPMS/${repo}/testing/
+mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=SRPMS&repo=${repo}&release=testing
+fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
