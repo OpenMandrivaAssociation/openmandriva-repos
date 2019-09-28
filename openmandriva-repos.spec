@@ -10,18 +10,21 @@
 %endif
 
 Name:		openmandriva-repos
-Version: 	4.0.1
-# In Cooker, it should be 0.0.X
-# In Rolling, it should be 0.1.X
-# For release candidates, it should be 0.2.X
-# Before final release, bump to 1
+Version: 	4.1
+# To make sure updates from older to newer always work flawlessly:
+# - Increase version in cooker and rolling immediately after a release
+# - Set release to:
+#   - 0.0.x for rock snapshots
+#   - 0.1 for rolling
+#   - 0.2 for cooker
+#   - 1 for final release (after increasing cooker and rolling version)
 %if %am_i_cooker
-Release:	0.0.4
+Release:	0.2
 %else
 %if %am_i_rolling
-Release:	0.1.4
+Release:	0.1
 %else
-Release:	2
+Release:	0.0.alpha1
 %endif
 %endif
 Summary:	OpenMandriva package repositories
