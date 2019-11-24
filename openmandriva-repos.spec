@@ -15,14 +15,14 @@ Version: 	4.1
 # - Increase version in cooker and rolling immediately after a release
 # - Set release to:
 #   - 0.0.x for rock snapshots
-#   - 0.1 for rolling
-#   - 0.2 for cooker
+#   - 0.1.x for rolling
+#   - 0.2.x for cooker
 #   - 1 for final release (after increasing cooker and rolling version)
 %if %am_i_cooker
-Release:	0.2
+Release:	0.2.1
 %else
 %if %am_i_rolling
-Release:	0.1
+Release:	0.1.1
 %else
 Release:	0.0.alpha1
 %endif
@@ -278,6 +278,7 @@ mirrorlist=http://mirrors.openmandriva.org/mirrors.php?platform=$vertag&arch=${a
 fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
+type=rpm-md
 enabled=0
 
 EOF
@@ -293,6 +294,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 			fi
@@ -307,6 +309,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 
@@ -320,6 +323,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 
@@ -334,6 +338,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 			fi
@@ -348,6 +353,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 
@@ -361,6 +367,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 
@@ -375,6 +382,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 			fi
@@ -389,6 +397,7 @@ fastestmirror=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OpenMandriva
 enabled=0
+type=rpm-md
 
 EOF
 		done
