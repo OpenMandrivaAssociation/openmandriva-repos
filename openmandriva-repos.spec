@@ -1,4 +1,4 @@
-%define am_i_cooker 1
+%define am_i_cooker 0
 %define am_i_rolling 0
 
 %ifarch %{x86_64}
@@ -24,7 +24,7 @@ Release:	0.2.1
 %if %am_i_rolling
 Release:	0.1.1
 %else
-Release:	0.0.alpha1
+Release:	1
 %endif
 %endif
 Summary:	OpenMandriva package repositories
