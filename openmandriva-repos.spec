@@ -10,7 +10,7 @@
 %endif
 
 Name:		openmandriva-repos
-Version: 	4.1
+Version: 	4.2
 # To make sure updates from older to newer always work flawlessly:
 # - Increase version in cooker and rolling immediately after a release
 # - Set release to:
