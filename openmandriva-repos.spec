@@ -1,5 +1,5 @@
-%define am_i_cooker 1
-%define am_i_rolling 0
+%define am_i_cooker 0
+%define am_i_rolling 1
 
 %ifarch %{x86_64}
 %global secondary_distarch i686
