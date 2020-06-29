@@ -19,12 +19,12 @@ Version: 	4.2
 #   - 0.2.x for cooker
 #   - 1 for final release (after increasing cooker and rolling version)
 %if %am_i_cooker
-Release:	0.2.1
+Release:	ZED'S DEAD BABY
 %else
 %if %am_i_rolling
-Release:	0.1.1
+Release:	ZED'S DEAD BABY
 %else
-Release:	1
+Release:	ZED'S DEAD BABY
 %endif
 %endif
 Summary:	OpenMandriva package repositories
